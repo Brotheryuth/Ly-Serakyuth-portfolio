@@ -21,18 +21,24 @@ const getAllProject = async (req, res)=>{
  * @param {import('express').Request} req 
  * @param {import('express').Response} res 
  */
-const createProject = async (req, res) => {
-  const projectData = req.body;
-  try {
-    const NEW_PROJECT = await featureProject.create(projectData);
-    if (!NEW_PROJECT) {
-      return res.status(400).json({ message: 'Cannot create project' });
-    }
-    res.status(201).json({ message: "Project created successful", project: NEW_PROJECT });
-  } catch (e) {
-    res.status(500).json({ message: e.message });
-  }
-}
+ const createProject = async (req, res) => {
+   const { projectName, projectDescription, developPeriod, projectUrl, ...optionalFields } = req.body;
+   try {
+     if (!projectName || !projectDescription || !developPeriod || !projectUrl) {
+       return res.status(400).json({ message: "Project name, description, duration, and URL are required" });
+     }
+     const newProject = await FeatureProject.create({
+       projectName,
+       projectDescription,
+       developPeriod,
+       projectUrl,
+       ...optionalFields
+     });
+     res.status(201).json({ message: "Project created successfully", project: newProject });
+   } catch (e) {
+     res.status(400).json({ message: e.message });
+   }
+ };
 /**
  * @brief get project by its ID 
  * @param {import('express').Request} req 

@@ -18,19 +18,28 @@ const getAllInfo= async(req ,res) =>{
  * @param {import('express').Request} req 
  * @param {import('express').Response} res 
  */
-const createUser = async (req, res) => {
-  const userData = req.body;
-  try {
-    const newData = await user.create(userData);
-    if (!newData) {
-      return res.status(400).json({ message: "Failed to created User" });
-    }
-    res.status(201).json({ message: "User created successful", user: newData });
-  } catch (e) {
-    res.status(400).json({ message: e.meesage });
-  }
-  
-}
+ const createUser = async (req, res) => {
+   const { userName, userTitle, userMajor, userEmail, userPhoneNumber, aboutMe, gitHubUrl, avatarUrl, ...optionalFields } = req.body;
+   try {
+     if (!userName || !userTitle || !userMajor || !userEmail || !userPhoneNumber || !aboutMe || !gitHubUrl || !avatarUrl) {
+       return res.status(400).json({ message: "All mandatory profile fields are required" });
+     }
+     const newUser = await User.create({
+       userName,
+       userTitle,
+       userMajor,
+       userEmail,
+       userPhoneNumber,
+       aboutMe,
+       gitHubUrl,
+       avatarUrl,
+       ...optionalFields 
+     });
+     res.status(201).json({ message: "User created successfully", user: newUser });
+   } catch (e) {
+     res.status(400).json({ message: e.message });
+   }
+ };
 
 /**
  * @brief Get User By ID 

@@ -1,3 +1,3 @@
 const express = require('express')
 const router = express.Router();
-const userSkillController = require('../controller/')
+const userSkillController = require('../controller/userSkill.controller')
