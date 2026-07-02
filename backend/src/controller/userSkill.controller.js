@@ -24,7 +24,7 @@ const getAllSkill = async (req, res) => {
      if (!name || skillLevel === undefined || !category) {
        return res.status(400).json({ message: "Skill name, level, and category are required" });
      }
-     const newSkill = await UserSkill.create({
+     const newSkill = await userSkill.create({
        name,
        skillLevel,
        category,

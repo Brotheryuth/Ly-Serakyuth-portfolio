@@ -14,7 +14,7 @@ const userSkillSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, "skill category is required "],
-    enum: ["Frontend", "Backend", "Database", "Tools"],
+    enum: ["Frontend", "Backend", "Database", "Tools","Languages"],
   },
 });
 const userSkill = mongoose.model("UserSkill", userSkillSchema);

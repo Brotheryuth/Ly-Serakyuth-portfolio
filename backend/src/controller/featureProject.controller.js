@@ -27,7 +27,7 @@ const getAllProject = async (req, res)=>{
      if (!projectName || !projectDescription || !developPeriod || !projectUrl) {
        return res.status(400).json({ message: "Project name, description, duration, and URL are required" });
      }
-     const newProject = await FeatureProject.create({
+     const newProject = await featureProject.create({
        projectName,
        projectDescription,
        developPeriod,

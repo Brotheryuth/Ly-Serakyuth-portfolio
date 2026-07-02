@@ -24,7 +24,7 @@ const getAllInfo= async(req ,res) =>{
      if (!userName || !userTitle || !userMajor || !userEmail || !userPhoneNumber || !aboutMe || !gitHubUrl || !avatarUrl) {
        return res.status(400).json({ message: "All mandatory profile fields are required" });
      }
-     const newUser = await User.create({
+     const newUser = await user.create({
        userName,
        userTitle,
        userMajor,

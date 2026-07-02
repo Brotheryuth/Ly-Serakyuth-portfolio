@@ -11,7 +11,7 @@ const education = require("../model/Education");
      if (!institution || !level || !startDate || !endDate) {
        return res.status(400).json({ message: "Institution, level, start date, and end date are required" });
      }
-     const newEducation = await Education.create({
+     const newEducation = await education.create({
        institution,
        level,
        startDate,
