@@ -13,6 +13,24 @@ const getAllInfo= async(req ,res) =>{
         res.status(400).json({message:e.message});
     }
 }
+/**
+ * create user data 
+ * @param {import('express').Request} req 
+ * @param {import('express').Response} res 
+ */
+const createUser = async (req, res) => {
+  const userData = req.body;
+  try {
+    const newData = await user.create(userData);
+    if (!newData) {
+      return res.status(400).json({ message: "Failed to created User" });
+    }
+    res.status(201).json({ message: "User created successful", user: newData });
+  } catch (e) {
+    res.status(400).json({ message: e.meesage });
+  }
+  
+}
 
 /**
  * @brief Get User By ID 
@@ -71,5 +89,5 @@ const deleteUser = async(req,res)=>{
 }
 
 module.exports={
-    getAllInfo, getByID, updateUserInfo, deleteUser
+    getAllInfo, getByID, updateUserInfo, deleteUser , createUser
 }
