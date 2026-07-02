@@ -7,7 +7,7 @@ const featureProjectSchema =new  mongoose.Schema({
     },
     projectDescription:{
         type:String,
-        require:'Project description is required'
+        require:[true,'Project description is required']
     },
     technologyUsed:{
         type: [String] , // array 
@@ -15,12 +15,12 @@ const featureProjectSchema =new  mongoose.Schema({
     },
     developPeriod:{
         type: String,
-        require:'Development period time is required'
+        require:[true,'Development period time is required']
     },
     projectUrl:{
         type:String,
         trim:true,
-        require:'Project url is required'
+        require:[true,'Project url is required']
     },
     githubUrl:{
         type:String,
