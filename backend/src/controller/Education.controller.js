@@ -1,4 +1,4 @@
-const education = require("../model/education");
+const education = require("../model/Education");
 
 /**
  * @brief create education background
@@ -27,7 +27,7 @@ const createEducation = async (req, res) => {
 const getAllEducation = async (req, res) => {
   try {
     const getEducation = await education.find();
-    (res.status(200), json({ message: "Load Successful", data: getEducation }));
+    res.status(200).json({ message: "Load Successful", data: getEducation });
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
@@ -62,7 +62,7 @@ const updateEducation = async (req, res) => {
 const deleteEducation = async (req, res) => {
   const { id } = req.params;
   try {
-    const deletedData = await education.findOneAndDelete(id);
+    const deletedData = await education.findByIdAndDelete(id);
     if (!deletedData) {
       return res
         .status(404)

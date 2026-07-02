@@ -10,7 +10,7 @@ const getAllInfo= async(req ,res) =>{
         const userinfo =await user.find();
         res.status(200).json({'Message':'Get all information' , 'user information':userinfo})
     }catch(e){
-        res.status(400).json({messagge:e.Message});
+        res.status(400).json({message:e.message});
     }
 }
 
@@ -26,7 +26,7 @@ const getByID = async(req,res)=>{
         res.status(200).json({'Message':'User Found' , 'User':getUser});
 
     }catch(e){
-        res.status(400).json({message:e.Message});
+        res.status(400).json({message:e.message});
     }
 }
 
@@ -48,7 +48,7 @@ const getByID = async(req,res)=>{
         res.status(200).json({message:'Update successful' , user: updateUser});
 
     }catch(e){
-        res.status(400).json({message:e.Message});
+        res.status(400).json({message:e.message});
     }
 }
 
@@ -62,7 +62,7 @@ const deleteUser = async(req,res)=>{
     try{
         const delUser = await user.findByIdAndDelete(id);
         if(!delUser){
-            return res.status(404).json({meesage:'User not found'});
+            return res.status(404).json({message:'User not found'});
         }
         res.status(200).json({message:'User delete successful' , deleteUser:delUser});
     }catch(e){

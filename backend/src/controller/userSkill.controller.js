@@ -22,7 +22,7 @@ const createSkill = async (req, res) => {
   const skillData = req.body;
   try {
     const newSkill = await userSkill.create(skillData);
-    if (!newSKill) {
+    if (!newSkill) {
       return res.status(400).json({ message: 'Cannot create skill' });
     }
     res.status(201).json({ message: "Skill created successful", skill: newSkill });
