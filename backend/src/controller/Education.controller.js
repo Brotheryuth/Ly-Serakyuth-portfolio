@@ -1,23 +1,28 @@
-const education = require("../model/education");
+const education = require("../model/Education");
 
 /**
  * @brief create education background
  * @param {import('express').Request} req
  * @param {import('express').Response} res
  */
-const createEducation = async (req, res) => {
-  const educationData = req.body;
-  try {
-    const newEducation = await education.create(educationData);
-    res
-      .status(201)
-      .json({ message: "Created Successful", education: newEducation });
-  } catch (e) {
-    res.status(400).json({
-      message: e.message,
-    });
-  }
-};
+ const createEducation = async (req, res) => {
+   const { institution, level, startDate, endDate, ...optionalFields } = req.body;
+   try {
+     if (!institution || !level || !startDate || !endDate) {
+       return res.status(400).json({ message: "Institution, level, start date, and end date are required" });
+     }
+     const newEducation = await education.create({
+       institution,
+       level,
+       startDate,
+       endDate,
+       ...optionalFields 
+     });
+     res.status(201).json({ message: "Education record created successfully", education: newEducation });
+   } catch (e) {
+     res.status(400).json({ message: e.message });
+   }
+ };
 
 /**
  * @brief get all education data from database
@@ -27,7 +32,7 @@ const createEducation = async (req, res) => {
 const getAllEducation = async (req, res) => {
   try {
     const getEducation = await education.find();
-    (res.status(200), json({ message: "Load Successful", data: getEducation }));
+    res.status(200).json({ message: "Load Successful", data: getEducation });
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
@@ -62,7 +67,7 @@ const updateEducation = async (req, res) => {
 const deleteEducation = async (req, res) => {
   const { id } = req.params;
   try {
-    const deletedData = await education.findOneAndDelete(id);
+    const deletedData = await education.findByIdAndDelete(id);
     if (!deletedData) {
       return res
         .status(404)

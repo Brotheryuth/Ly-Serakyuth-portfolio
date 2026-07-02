@@ -18,18 +18,23 @@ const getAllSkill = async (req, res) => {
  * @param {import('express').Request} req 
  * @param {import('express').Response} res 
  */
-const createSkill = async (req, res) => {
-  const skillData = req.body;
-  try {
-    const newSkill = await userSkill.create(skillData);
-    if (!newSKill) {
-      return res.status(400).json({ message: 'Cannot create skill' });
-    }
-    res.status(201).json({ message: "Skill created successful", skill: newSkill });
-  } catch (e) {
-    res.status(400).json({message:e.message})
-  }
-}
+ const createSkill = async (req, res) => {
+   const { name, skillLevel, category, ...optionalFields } = req.body;
+   try {
+     if (!name || skillLevel === undefined || !category) {
+       return res.status(400).json({ message: "Skill name, level, and category are required" });
+     }
+     const newSkill = await userSkill.create({
+       name,
+       skillLevel,
+       category,
+       ...optionalFields //  appends icon if provided
+     });
+     res.status(201).json({ message: "Skill created successfully", skill: newSkill });
+   } catch (e) {
+     res.status(400).json({ message: e.message });
+   }
+ };
 /**
  * 
  * @param {import('express').Request} req 
