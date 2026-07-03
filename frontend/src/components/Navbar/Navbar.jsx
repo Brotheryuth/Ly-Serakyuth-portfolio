@@ -38,10 +38,10 @@ function Navbar() {
       
       <div className="navbar-navigation-links">
         <a href="/" className="navbar-link">HOME</a>
-        <a href="/#about" className="navbar-link">
+        <a href="/about" className="navbar-link">
           ABOUT
         </a>
-        <a href="/#skills" className="navbar-link">
+        <a href="/skills" className="navbar-link">
           SKILLS
         </a>
         <a href="/#projects" className="navbar-link">
