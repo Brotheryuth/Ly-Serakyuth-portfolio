@@ -1,0 +1,76 @@
+.notFound-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.nf-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+  width: 100%;
+}
+
+.nf-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.nf-code {
+  font-size: 4.5rem;
+  margin: 0;
+  color:var(--error-color);
+  line-height: 1;
+}
+
+.nf-message {
+  margin: 16px 0 28px 0;
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.nf-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--bg-btn);
+  color: var(--text-light);
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.nf-btn:hover {
+  opacity: 0.9;
+}
+
+.nf-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+  .nf-code {
+    font-size: 3.5rem;
+  }
+  
+  .nf-message {
+    font-size: 1rem;
+    margin: 12px 0 20px 0;
+  }
+  
+  .nf-image {
+    max-width: 90%;
+  }
+}
