@@ -13,7 +13,7 @@ export const userSkillService = {
     return res.data.skill;
   },
   deleteSkill: async (id) => {
-    const res = await api.delete(`/userSkill${id}`);
+    const res = await api.delete(`/userSkill/${id}`);
     return res.data;
   }
 }

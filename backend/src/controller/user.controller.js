@@ -10,7 +10,7 @@ const getAllInfo = async (req, res) => {
     const userinfo = await user.find();
     res
       .status(200)
-      .json({ Message: "Get all information", "user information": userinfo });
+      .json({ Message: "Get all information", user: userinfo });
   } catch (e) {
     res.status(400).json({ message: e.message });
   }

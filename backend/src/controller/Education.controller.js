@@ -32,7 +32,7 @@ const education = require("../model/education");
 const getAllEducation = async (req, res) => {
   try {
     const getEducation = await education.find();
-    res.status(200).json({ message: "Load Successful", data: getEducation });
+    res.status(200).json({ message: "Load Successful", education: getEducation });
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
@@ -54,7 +54,7 @@ const updateEducation = async (req, res) => {
     if (!updatedData) {
       return res.status(404).json({ message: "Education to update not found" });
     }
-    res.status(200).json({ message: "Updated Successful", data: updatedData });
+    res.status(200).json({ message: "Updated Successful", education: updatedData });
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
