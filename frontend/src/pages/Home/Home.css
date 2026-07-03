@@ -110,20 +110,38 @@
 
 .skill-icon-card {
   aspect-ratio: 1 / 1;
-  background-color: var(--bg-btn);
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 12px;
   padding: 15px;
   box-sizing: border-box;
 }
+
+
 
 .skill-svg-icon {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* filter: brightness(0) invert(1); */
+}
+
+.view-more-card {
+  background-color: transparent;
+  border: 1px solid var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+  border-radius: 15px;
+  
+
+}
+
+.view-more-card .skill-unknown-icon {
+  font-size: 0.75rem; 
+  line-height: 1.2;
+  font-weight: 700;
+  display: block;
+  text-align: center;
 }
 
 body.dark-mode .skill-svg-icon {
@@ -131,7 +149,7 @@ body.dark-mode .skill-svg-icon {
 }
 
 .skill-unknown-icon {
-  color: var(--text-light);
+  color: var(--text-primary);
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -169,6 +187,7 @@ body.dark-mode .skill-svg-icon {
   .portfolio-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+
   }
   
   .profile-img {
@@ -179,4 +198,43 @@ body.dark-mode .skill-svg-icon {
   .greeting-heading {
     font-size: 2.8rem;
   }
+  .skills-icon-grid div.skill-icon-card:nth-of-type(n+5) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-icon-grid div.skill-icon-card:nth-of-type(n+4) {
+    display: none;
+  }
+}
+
+.view-more-card {
+  background-color: transparent;
+  border: 1px solid var(--text-primary);
+  text-decoration: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.view-more-card .skill-unknown-icon {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  font-weight: 700;
+  text-align: center;
+  transition: color 0.25s ease;
+}
+
+.view-more-card:hover {
+  background-color: var(--text-primary);
+}
+
+.view-more-card:hover .skill-unknown-icon {
+  color: var(--bg-main);
+}
+
+/* In dark mode (black page), invert black logos (GitHub, Git) to white so they are visible */
+body.dark-mode .skill-icon-card[title="github" i] .skill-svg-icon,
+body.dark-mode .skill-icon-card[title="git" i] .skill-svg-icon {
+  filter: brightness(0) invert(1);
 }

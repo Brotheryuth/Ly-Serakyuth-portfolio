@@ -4,7 +4,8 @@ import { userService } from '../../services/user.service';
 import { skillService } from '../../services/userSkill.service';
 import { projectService } from '../../services/featureProject.service';
 import { educationService } from '../../services/education.service';
-import { getSkillIcon } from '../../utils/skillicon';
+import SkillBadge from '../../components/SkillBadge/SkillBadge';
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import './Home.css';
 
 function Home() {
@@ -70,42 +71,20 @@ function Home() {
             ))}
           </section>
 
-          <footer className="contact-row">
-            {profile?.userPhoneNumber && (
-              <div className="contact-item">
-                <span>Phone:</span> {profile.userPhoneNumber}
-              </div>
-            )}
-            {profile?.userEmail && (
-              <div className="contact-item">
-                <span>Email:</span> {profile.userEmail}
-              </div>
-            )}
-            {profile?.gitHubUrl && (
-              <div className="contact-item">
-                <span>GitHub:</span> <a href={profile.gitHubUrl} target="_blank" rel="noreferrer">profile</a>
-              </div>
-            )}
-          </footer>
+
         </div>
 
         <div className="grid-column column-right">
           
-          <section className="info-block">
+          <section id="skills" className="info-block">
             <h2 className="info-block-title">SKILLS</h2>
             <div className="skills-icon-grid">
-              {skills.slice(0, 5).map((skill) => {
-                const iconUrl = getSkillIcon(skill.name);
-                return (
-                  <div key={skill._id} className="skill-icon-card" title={skill.name}>
-                    {iconUrl ? (
-                      <img src={iconUrl} alt={skill.name} className="skill-svg-icon" />
-                    ) : (
-                      <span className="skill-unknown-icon">?</span>
-                    )}
-                  </div>
-                );
-              })}
+              {skills.map((skill) => (
+                <SkillBadge key={skill._id} name={skill.name} />
+              ))}
+              <Link to="/skills" className="skill-icon-card view-more-card" title="View All Skills">
+                <span className="skill-unknown-icon">View All Skills</span>
+              </Link>
             </div>
           </section>
 
@@ -113,11 +92,10 @@ function Home() {
             <h2 className="info-block-title">PROJECTS</h2>
             <div className="projects-list">
               {projects.slice(0,2).map((proj) => (
-                <Link to={`/project/${proj._id}`} key={proj._id} className="project-brief-item">
-                  <div className="project-time">{proj.developPeriod}</div>
-                  <div className="project-name">{proj.projectName}</div>
-                </Link>
+                <ProjectCard key={proj._id} project={proj} />
               ))}
+            
+
             </div>
           </section>
 

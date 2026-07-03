@@ -1,10 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './page/Login/Login';
-import Dashboard from './page/Dashboard/Dashboard';
-import Notfound from './page/NotFound/Notfound';
-import Home from './page/Home/Home';
-
+import Login from './pages/Login/Login';
+import Dashboard from './pages/Dashboard/Dashboard';
+import NotFound from './pages/NotFound/NotFound';
+import Home from './pages/Home/Home';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 // just a helper to check for jwt token before access to unathorized page 
 const ProtectRoute = ({children})=>{
   const token = localStorage.getItem('token');
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
     <Router>
+      <Navbar/>
       <Routes>
         {/* public route */}
         <Route path='/' element={<Home/>} />
@@ -27,8 +29,9 @@ function App() {
             <ProtectRoute> 
               <Dashboard/>
             </ProtectRoute>}/>
-        <Route path="*" element={<Notfound/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
+      <Footer />
     </Router>
     </>
   )
