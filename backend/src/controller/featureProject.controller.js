@@ -1,4 +1,4 @@
-const featureProject = require('../model/FeatureProject');
+const featureProject = require('../model/featureProject');
 
 /**
  * @brief get all feature project 

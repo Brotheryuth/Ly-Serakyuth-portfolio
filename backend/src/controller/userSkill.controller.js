@@ -1,4 +1,4 @@
-const userSkill = require('../model/UserSkill')
+const userSkill = require('../model/userSkill')
 
 /**
  * 

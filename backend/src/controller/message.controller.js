@@ -1,4 +1,4 @@
-const Message = require('../model/Message'); // Assumes you have a Message.js model
+const Message = require('../model/message'); // Assumes you have a Message.js model
 
 /**
  * @brief Submit a new contact message (POST /api/messages)
@@ -7,12 +7,12 @@ const Message = require('../model/Message'); // Assumes you have a Message.js mo
  */
 const createMessage = async (req, res) => {
     const { name, email, subject, message } = req.body;
-
-    try {
         // Validate required inputs on the controller level (additional security)
         if (!name || !email || !subject || !message) {
             return res.status(400).json({ message: 'All contact fields are required' });
         }
+
+    try {
 
         const newMessage = await Message.create({
             name,

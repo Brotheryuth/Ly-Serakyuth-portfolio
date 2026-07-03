@@ -1,4 +1,4 @@
-const education = require("../model/Education");
+const education = require("../model/education");
 
 /**
  * @brief create education background
