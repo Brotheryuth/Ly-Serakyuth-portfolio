@@ -1,5 +1,5 @@
 import api from './api'
-export const userSkillService = {
+export const skillService = {
   getAll: async () => {
     const res = await api.get('/userSkill');
     return res.data.skill;

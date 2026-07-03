@@ -1,0 +1,40 @@
+/* light mode  */
+:root {
+  --bg-main: #ffffff;           
+  --bg-card: #f7f7f7;            
+  --bg-btn: #000000;             
+  
+  --text-primary: #000000;       
+  --text-secondary: #555555;    
+  --text-light: #ffffff;        
+  
+  --border-color: #e5e5e5;     
+  --font-family: system-ui, -apple-system, sans-serif;
+  --error-color: #d00101;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  --bg-main: #0a0a0a;           
+  --bg-card: #141414;           
+  --bg-btn: #ffffff;            
+  
+  --text-primary: #ffffff;       
+  --text-secondary: #aaaaaa;     
+  --text-light: #000000;        
+  --error-color:#e53e3e;
+  --border-color: #262626;      
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+}
+
+body, nav, div, section, header, footer, a, button {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
