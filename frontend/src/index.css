@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 /* light mode  */
 :root {
   --bg-main: #ffffff;           
@@ -9,7 +11,10 @@
   --text-light: #ffffff;        
   
   --border-color: #e5e5e5;     
-  --font-family: system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-serif: 'Playfair Display', Georgia, serif;
+  --font-family: var(--font-family-sans);
+  
   --error-color: #d00101;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -33,6 +38,20 @@ body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+/* Heading Styling: Apply serif font for an editorial look */
+h1, h2, 
+.greeting-heading, 
+.about-name, 
+.skills-page-title, 
+.section-title-alt, 
+.timeline-section-title, 
+.info-block-title {
+  font-family: var(--font-family-serif);
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 body, nav, div, section, header, footer, a, button {

@@ -18,7 +18,6 @@ function About() {
         ]);
         setProfile(userProfile);
         
-        // Sort education in reverse chronological order (Present / newest first)
         const sortedEdu = (allEducation || []).sort((a, b) => {
           const getYear = (dateStr) => {
             if (dateStr.toLowerCase().includes('present')) return 9999;
@@ -36,6 +35,49 @@ function About() {
     };
     fetchData();
   }, []);
+
+  // Butter-smooth scroll animation using requestAnimationFrame and direct DOM updates
+  useEffect(() => {
+    if (loading) return;
+
+    const timeline = document.querySelector('.timeline-container');
+    const timelineFill = document.querySelector('.timeline-line-fill');
+    if (!timeline || !timelineFill) return;
+
+    let ticking = false;
+
+    const updateProgress = () => {
+      const rect = timeline.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      // Middle of the screen is the trigger focus point
+      const focusPoint = windowHeight / 2;
+      const totalHeight = rect.height;
+      const distanceFromTop = focusPoint - rect.top;
+      
+      const progress = (distanceFromTop / totalHeight) * 100;
+      const clampedProgress = Math.max(0, Math.min(100, progress));
+      
+      timelineFill.style.height = `${clampedProgress}%`;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    updateProgress(); // Run once initially
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [loading]);
 
   if (loading) return <div className="loading-state">Loading...</div>;
 
@@ -96,7 +138,9 @@ function About() {
         <h2 className="timeline-section-title">EDUCATION HISTORY</h2>
         
         <div className="timeline-container">
-          <div className="timeline-line"></div>
+          <div className="timeline-line">
+            <div className="timeline-line-fill"></div>
+          </div>
           
           {education.map((edu, index) => (
             <div key={edu._id} className="timeline-item" style={{ animationDelay: `${index * 0.15}s` }}>

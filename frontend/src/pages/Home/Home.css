@@ -209,28 +209,32 @@ body.dark-mode .skill-svg-icon {
   }
 }
 
-.view-more-card {
-  background-color: transparent;
-  border: 1px solid var(--text-primary);
+.explore-skills-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--text-secondary);
   text-decoration: none;
-  transition: background-color 0.25s ease, border-color 0.25s ease;
-}
-
-.view-more-card .skill-unknown-icon {
-  color: var(--text-primary);
-  font-size: 0.75rem;
-  line-height: 1.2;
+  font-size: 0.85rem;
   font-weight: 700;
-  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   transition: color 0.25s ease;
+  width: fit-content;
 }
 
-.view-more-card:hover {
-  background-color: var(--text-primary);
+.explore-skills-link:hover {
+  color: var(--text-primary);
 }
 
-.view-more-card:hover .skill-unknown-icon {
-  color: var(--bg-main);
+.explore-skills-link .arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.explore-skills-link:hover .arrow {
+  transform: translateX(4px);
 }
 
 /* In dark mode (black page), invert black logos (GitHub, Git) to white so they are visible */

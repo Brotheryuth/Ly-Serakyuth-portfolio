@@ -164,7 +164,7 @@
   padding-left: 30px; /* shift timeline to the left */
 }
 
-/* Vertical line */
+/* Vertical line track (background) */
 .timeline-line {
   position: absolute;
   left: 6px;
@@ -172,6 +172,17 @@
   bottom: 10px;
   width: 2px;
   background-color: var(--border-color);
+  overflow: hidden;
+}
+
+/* Dynamic scroll progress fill */
+.timeline-line-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--text-primary);
+  transition: height 0.08s ease-out;
 }
 
 /* Timeline Items */

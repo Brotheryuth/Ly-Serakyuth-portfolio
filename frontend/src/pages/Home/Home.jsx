@@ -79,13 +79,13 @@ function Home() {
           <section id="skills" className="info-block">
             <h2 className="info-block-title">SKILLS</h2>
             <div className="skills-icon-grid">
-              {skills.map((skill) => (
+              {skills.slice(0, 6).map((skill) => (
                 <SkillBadge key={skill._id} name={skill.name} />
               ))}
-              <Link to="/skills" className="skill-icon-card view-more-card" title="View All Skills">
-                <span className="skill-unknown-icon">View All Skills</span>
-              </Link>
             </div>
+            <Link to="/skills" className="explore-skills-link">
+              Explore All Skills <span className="arrow">&rarr;</span>
+            </Link>
           </section>
 
           <section className="info-block">
