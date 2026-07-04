@@ -79,13 +79,16 @@ function Home() {
           <section id="skills" className="info-block">
             <h2 className="info-block-title">SKILLS</h2>
             <div className="skills-icon-grid">
-              {skills.slice(0, 6).map((skill) => (
+              {skills.slice(0, 5).map((skill) => (
                 <SkillBadge key={skill._id} name={skill.name} />
               ))}
+              <Link to="/skills" className="skill-icon-card view-all-skills-card" title="Explore All Skills">
+                <div className="view-all-content">
+                  <span className="view-all-symbol">&rarr;</span>
+                  <span className="view-all-text">MORE</span>
+                </div>
+              </Link>
             </div>
-            <Link to="/skills" className="explore-skills-link">
-              Explore All Skills <span className="arrow">&rarr;</span>
-            </Link>
           </section>
 
           <section className="info-block">
@@ -94,9 +97,10 @@ function Home() {
               {projects.slice(0,2).map((proj) => (
                 <ProjectCard key={proj._id} project={proj} />
               ))}
-            
-
             </div>
+            <Link to="/projects" className="explore-projects-link">
+              Explore All Projects <span className="arrow">&rarr;</span>
+            </Link>
           </section>
 
         </div>

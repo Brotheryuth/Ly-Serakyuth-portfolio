@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Home from './pages/Home/Home';
 import Skills from './pages/Skills/Skills';
 import About from './pages/About/About';
+import Projects from './pages/Projects/Projects';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 // just a helper to check for jwt token before access to unathorized page 
@@ -26,6 +27,7 @@ function App() {
         {/* public route */}
         <Route path='/' element={<Home/>} />
         <Route path='/about' element={<About/>} />
+        <Route path='/projects' element={<Projects/>} />
         <Route path='/skills' element={<Skills/>} />
         <Route path='/login' element={<Login/>}/>
         <Route path='dashboard' 
