@@ -7,7 +7,7 @@
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1.25fr 1.5fr 1fr;
   gap: 50px;
   align-items: start;
 }
@@ -15,11 +15,12 @@
 .column-left {
   display: flex;
   justify-content: center;
+  align-self: center;
 }
 
 .profile-img {
   width: 100%;
-  max-width: 320px;
+  max-width: 420px;
   height: auto;
   border-radius: 32px;
   object-fit: cover;
@@ -183,26 +184,59 @@ body.dark-mode .skill-svg-icon {
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
+/* Tablet Layout (iPad / 834px up to 1024px): 2-Column Grid */
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1.8fr;
+    gap: 40px;
+  }
+
+  .column-left {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    align-self: start;
+  }
+
+  .column-center {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .column-right {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* Mobile Layout (768px and below): Stacks into 1 Column */
+@media (max-width: 768px) {
   .portfolio-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
-
+    gap: 30px;
   }
-  
+
+  .column-left,
+  .column-center,
+  .column-right {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
   .profile-img {
     max-width: 240px;
     border-radius: 24px;
   }
-  
+
   .greeting-heading {
     font-size: 2.8rem;
   }
+
   .skills-icon-grid div.skill-icon-card:nth-of-type(n+5) {
     display: none;
   }
 }
 
+/* Small Mobile Layout (480px and below) */
 @media (max-width: 480px) {
   .skills-icon-grid div.skill-icon-card:nth-of-type(n+4) {
     display: none;
@@ -332,15 +366,20 @@ body.dark-mode .skill-icon-card[title="git" i] .skill-svg-icon {
 
 .col-action-btn {
   flex: 1;
-  padding: 12px 16px;
+  padding: 14px 20px;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  border-radius: 6px;
+  letter-spacing: 0.08em;
+  border-radius: 100px;
   text-decoration: none;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
+}
+
+.col-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
 .outline-col-btn {
@@ -363,11 +402,21 @@ body.dark-mode .skill-icon-card[title="git" i] .skill-svg-icon {
 .solid-col-btn:hover {
   background-color: transparent;
   color: var(--text-primary);
+  box-shadow: none; /* remove shadow on outline fallback */
 }
 
 @media (max-width: 480px) {
   .homepage-projects-horizontal-list {
     flex-direction: column;
     gap: 15px;
+  }
+
+  .homepage-column-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .col-action-btn {
+    width: 100%;
   }
 }
