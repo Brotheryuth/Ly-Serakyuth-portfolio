@@ -12,5 +12,9 @@ export const educationService = {
   deleteEducation: async (id) => {
     const res = await api.delete(`/education/${id}`);
     return res.data;
+  },
+  createEducation: async (data) => {
+    const res = await api.post('/education', data);
+    return res.data.education;
   }
 }
