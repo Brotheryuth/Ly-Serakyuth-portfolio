@@ -253,13 +253,11 @@ body.dark-mode .skill-svg-icon {
   color: var(--text-primary);
 }
 
-/* In dark mode (black page), invert black logos (GitHub, Git) to white so they are visible */
 body.dark-mode .skill-icon-card[title="github" i] .skill-svg-icon,
 body.dark-mode .skill-icon-card[title="git" i] .skill-svg-icon {
   filter: brightness(0) invert(1);
 }
 
-/* Horizontal Projects List inside Right Column */
 .homepage-projects-horizontal-list {
   display: flex;
   gap: 16px;
@@ -302,7 +300,7 @@ body.dark-mode .skill-icon-card[title="git" i] .skill-svg-icon {
 }
 
 .homepage-project-text-item .project-name {
-  font-family: var(--font-family-serif);
+  font-family: var(--font-family-sans);
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);

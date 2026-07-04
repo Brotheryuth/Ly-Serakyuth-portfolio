@@ -90,8 +90,6 @@ function Home() {
               </Link>
             </div>
           </section>
-
-          {/* Text-based Projects Section (Horizontal inside right column) */}
           <section className="info-block">
             <h2 className="info-block-title">PROJECTS</h2>
             <div className="homepage-projects-horizontal-list">
