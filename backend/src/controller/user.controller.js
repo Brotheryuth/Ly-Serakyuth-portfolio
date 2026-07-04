@@ -87,12 +87,12 @@ const getByID = async (req, res) => {
  * @param {import('express').Response} res
  */
 const updateUserInfo = async (req, res) => {
-  const { getID } = req.params;
+  const { id } = req.params;
 
   const { _id, ...updateData } = req.body; // remove id to makesure there's no duplicated id
   try {
     const updateUser = await user.findByIdAndUpdate(
-      getID,
+      id,
       { $set: updateData },
       { returnDocument: 'after', runValidators: true },
     );
