@@ -259,7 +259,7 @@
 }
 
 .close-modal-btn {
-  position: fixed;
+  position: absolute;
   top: 25px;
   right: 25px;
   width: 44px;
@@ -417,6 +417,7 @@
     margin: 0;
   }
   .close-modal-btn {
+    position: fixed; /* Keep it floating/sticky on mobile */
     top: 15px;
     right: 15px;
     width: 40px;
