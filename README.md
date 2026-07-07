@@ -2,6 +2,26 @@
 
 I designed and developed this full-stack web portfolio as my final assessment project. It demonstrates my software engineering capabilities using the MERN stack (MongoDB, Express, React, Node.js) and cloud deployment on AWS.
 
+## Table of Contents
+
+* [Project Overview](#project-overview)
+* [Main Features](#main-features)
+* [Technologies Used](#technologies-used)
+* [Application Architecture](#application-architecture)
+* [Installation Instructions](#installation-instructions)
+* [Environment Variable Instructions](#environment-variable-instructions)
+* [Git Ignore Configurations](#git-ignore-configurations)
+* [Production Configurations](#production-configurations)
+* [Security Implementation](#security-implementation)
+* [API Endpoint Summary](#api-endpoint-summary)
+* [Screenshots](#screenshots)
+* [Live Website URL](#live-website-url)
+* [GitHub Repository URL](#github-repository-url)
+* [Known Limitations](#known-limitations)
+* [Future Improvements](#future-improvements)
+* [Author Information](#author-information)
+* [Development and Deployment Challenges Resolved](#development-and-deployment-challenges-resolved)
+
 ## Project Overview
 
 I built this portfolio to showcase my technical skills, academic milestones, and coding projects to recruiters, internship coordinators, and instructors. The application features a fully responsive public portal for visitors and a private administrative dashboard that gives me full CRUD control over my data.
