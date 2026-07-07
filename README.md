@@ -219,7 +219,6 @@ My project source code is hosted on GitHub at:
 * **Course/Major:** Software Engineering Student
 * **Academic Institution:** CamTech University
 * **Email:** lyserakyuth06@gmail.com
-* **LinkedIn:** [Your LinkedIn Link]
 * **GitHub Profile:** `https://github.com/Brotheryuth`
 
 ---
