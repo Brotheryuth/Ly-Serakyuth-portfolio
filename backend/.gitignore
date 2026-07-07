@@ -1,0 +1,15 @@
+# Dependency directory
+node_modules/
+
+# Environment secrets
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS/IDE junk
+.DS_Store
+.vscode/
+.idea/
